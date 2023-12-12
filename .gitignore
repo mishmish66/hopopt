@@ -1,2 +1,10 @@
 hopopt
 *__pycache__*
+writeup.aux
+writeup.log
+writeup.out
+writeup.synctex.gz
+writeup.fls
+writeup.fdb_latexmk
+writeup.bbl
+writeup.blg
