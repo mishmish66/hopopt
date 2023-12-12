@@ -54,7 +54,7 @@ Another is one led by Toussaint et al. \cite{toussaint_sequence--constraints_202
 \section{Background}
 \label{sec:background}
 
-MPC problems are optimization problems of the standard form that optimize a cost function \(J(x)\) and given constraint functions \(g(x)\) and \(h(x)\) find the \(x\) that minimizes \(J(x)\) subject to the constraint that \(g(x)\leq0\) and \(g(x)=0\).
+MPC problems are optimization problems of the standard form that optimize a cost function \(J(x)\) and given constraint functions \(g(x)\) and \(h(x)\) find the \(x\) that minimizes \(J(x)\) subject to the constraint that \(g(x)\leq0\) and \(h(x)=0\).
 
 \begin{align*}
     \quad & x                &                                           & \text{Optimization Variable} \\
@@ -66,7 +66,7 @@ MPC problems are optimization problems of the standard form that optimize a cost
           &                  & h(x) = 0
 \end{align*}
 
-When this form is used for MPC the cost function is formulated such that some portion of \(x\) can be used to compute the optimal control input, and the constraints keep that control feasible.
+When this form is used for MPCs the cost function is chosen such that some portion of \(x\) can be used to compute the optimal control input, and the constraints keep that control feasible.
 There exist a variety of ways to formulate such a cost function.
 
 Naunert et al. \cite{neunert_whole-body_2018} specify a collocation constraint using realistic nonlinear robot dynamics and a cost function of an arbitrary form \(L(x, u, t)\) integrated over the trajectory as well as a cost on the final position \(h(x_f)\).
@@ -187,7 +187,7 @@ The x position command changes and then we can see that the robot arrives at tha
 \end{figure}
 
 An additional metric by which the performance of this controller can be measured is by the success with which the controller adhered to the commanded air time.
-In figure~\ref{fig:fig2} I used an air time of 1.5 seconds for all data since this seems to be the ideal point for the studied MPC.
+In figure~\ref{fig:fig2} an air time of 1.5 seconds was commanded.
 Figure~\ref{fig:fig3} shows the distribution of the achieved air times for a given commanded air time.
 The reason for the inaccuracy to the trajectory at the higher end is due to the simplification made to not use effects dependent on velocity.
 Once a large enough velocity is commanded these effects become relevant and accuracy is lost.
@@ -206,8 +206,8 @@ Once a large enough velocity is commanded these effects become relevant and accu
 \section{Conclusion}
 \label{sec:conclusion}
 
-This project successfuly adapter the trajectory optimization algorithm to the 2D monopod system and controlled it to follow some reference trajectories.
-This success despite the limitations of the simplicity of the model and the sub-optimality of the trajectory generator highlight the positive properties of MPC control, namely that because of the predictive control it is reasonably robust to dynamics immprecision.
+This project successfuly adapts the trajectory optimization algorithm to the 2D monopod system and controlled it to follow some reference trajectories.
+This success despite the limitations of the simplicity of the model and the sub-optimality of the trajectory generator highlight the positive properties of MPC control, namely that because of the predictive control it is robust to imprecision dynamics.
 
 The challenges enountered were primarily in generating feasible reference trajectories that lead to feasible contact sequences.
 
@@ -215,8 +215,8 @@ An interesting area of future investigation would be improvement upon the achiev
 Another interesting area of future investigation would be to try various more advanced trajectory generators than the simple heuristic one used for this investigation.
 
 In conclusion, this project was great for getting more familiar with the MPC algorithm.
-Though I was aware of this algorithm prior to doing this assignment I still found myself referncing various papers often.
-I learned a lot throught the process of implementing this final project and am happy with the reasonably successful result.
+Though I was aware of this algorithm prior to doing this assignment I still found myself referencing various papers often.
+I learned a lot through the process of implementing this final project and am happy with the achieved results.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
