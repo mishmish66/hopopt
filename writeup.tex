@@ -40,7 +40,7 @@ Since then this the topic has been studied in much more detail resulting in MPCs
 
 \subsection{Recent Work}
 
-More recently the use of MPCs has extended to the onboard online optimization of legged robot control sequences \cite{erez_integrated_2013}.
+More recently the use of MPCs has extended to the onboard online optimization of legged robot control sequences such as the one studied by Erez et al. \cite{erez_integrated_2013}.
 These MPCs have ranged from highly nonlinear MPCs that simultaneously optimize the landing locations, times, and reaction forces, to simpler methods which eschew the more complex aspects of the problem often converting it to a convex optimization problem which can be solved at a high frequency and thus provide highly relevant trajectories that are updated to the robot's current state.
 
 An additional direction of recent development has been in the use of various techniques to leverage prior data to speed up or stabilize the optimization process.
@@ -49,7 +49,7 @@ Another example is the use of heuristics to make the non-convex problem closer t
 
 A second direction of recent development is in the use of contact implicit solvers to merge the optimization of contact and control at the same time, allowing the discovery of more optimal control inputs and position trajectories.
 An example of an investigation in this direction is the one conducted by Le Cleac and Howell et al. \cite{cleach_fast_2023} which uses complementarity to find contact implicit trajectories.
-Another is one led by Toussaint which uses a sequence of constraints to force the desired behavior \cite{toussaint_sequence--constraints_2022}.
+Another is one led by Toussaint et al. \cite{toussaint_sequence--constraints_2022} which uses a sequence of constraints to force the desired behavior.
 
 \section{Background}
 \label{sec:background}
@@ -67,15 +67,15 @@ MPC problems are optimization problems of the standard form that optimize a cost
 \end{align*}
 
 When this form is used for MPC the cost function is formulated such that some portion of \(x\) can be used to compute the optimal control input, and the constraints keep that control feasible.
-There exist a variety of ways to formulate such a cosTrajectory optimization through contacts and automatic gait discovery for quadrupedst function.
+There exist a variety of ways to formulate such a cost function.
 
 Naunert et al. \cite{neunert_whole-body_2018} specify a collocation constraint using realistic nonlinear robot dynamics and a cost function of an arbitrary form \(L(x, u, t)\) integrated over the trajectory as well as a cost on the final position \(h(x_f)\).
 Posa et al. \cite{posa_direct_2014} and Le Cleac and Howell et al. \cite{cleach_fast_2023} take a similar approach but use complementarity to implicitly solve for contacts and reaction forces simultaneously.
 The complementarity comes from the requirement that either contact distances are zero or contact forces are zero.
 
 The works that this project is adapting to the planar 2D monopod case are the work of of Kim et al. \cite{kim_highly_2019} and Di Carlo et al. \cite{di_carlo_dynamic_2018} on optimizing reaction forces for the control of fast legged robots.
-These works further distill the problem down from the other formulations mentioned to reduce all the way to a QP optimization problem subject to a linear constraints that can be solved extremely quickly on-board a small mobile robot.
-By using an abstraction which captures enough of the robot's dynamics to generate useful control trajectories in a form that is easy for optimization engines to solve these formulations are able to update extremely quickly and thus reject errors more effectively.
+These works further distill the problem down from the other formulations mentioned to reduce all the way to a QP optimization problem subject to linear constraints that can be solved extremely quickly on-board a small mobile robot.
+By using an abstraction which captures enough of the robot's dynamics to generate useful control trajectories in a form that is easy for optimization engines to solve, these formulations are able to update extremely quickly and thus reject errors more effectively.
 
 \section{Methodology}
 \label{sec:methodology}
